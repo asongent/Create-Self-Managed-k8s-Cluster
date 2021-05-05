@@ -35,5 +35,4 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 sudo systemctl enable kubeadm
 sudo apt-get update -y
-sudo kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 sudo hostnamectl set-hostname master-node
