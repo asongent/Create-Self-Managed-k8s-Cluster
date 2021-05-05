@@ -14,11 +14,11 @@
 
 - On `master-node`, `workernode01`, and `workernode02` perform the following
 
-`bash
+```bash
 docker --version
 kubectl vesion
 ```
 
-`bash
+```bash
 sudo kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 ```
