@@ -9,22 +9,18 @@
 ----
 
 ##### Step 1
-
 ###### Once all your devices are up and running you will have to perform the following to insure that all the applications are up and running
 
 - On `master-node`, `workernode01`, and `workernode02` perform the following
-
 ```bash
 docker --version
 kubectl vesion
 ```
 ----
-
 ##### Step 2
 ###### Initialize Kubernetes on Master Node 
 
 - on the `master-node`, launch
-
  ```bash
  sudo kubeadm init --pod-network-cidr=172.16.0.0/16
  ```
