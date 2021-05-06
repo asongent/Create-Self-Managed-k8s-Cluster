@@ -28,7 +28,7 @@ kubectl vesion
  ```bash
  sudo kubeadm init --pod-network-cidr=172.16.0.0/16
  ```
- ##### NB. The cidr block (172.16.0.0/16) is for my VPC. Your may be different if you choose not to use is decleared on the [`variable.tf`](https://github.com/asongent/Create-Self-Managed-k8s-Cluster/blob/master/k8s-infrastructure-with-terraform/variables.tf#L65) above.
+ ###### NB. The cidr block (172.16.0.0/16) is for my VPC. Yours may be different if you choose not to use what is decleared on the [`variable.tf`](https://github.com/asongent/Create-Self-Managed-k8s-Cluster/blob/master/k8s-infrastructure-with-terraform/variables.tf#L65) file above.
 
 
 ```bash
