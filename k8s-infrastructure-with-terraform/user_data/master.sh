@@ -23,9 +23,7 @@ sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 sudo swapoff -a
 sudo apt-get update -y 
-sudo service docker start
-sudo swapoff –a
-
+sudo service docker start 
 
 sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
