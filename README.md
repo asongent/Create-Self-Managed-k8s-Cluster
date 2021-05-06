@@ -21,7 +21,7 @@ kubectl vesion
 ----
 
 ##### Step 2
-- Initialize Kubernetes on Master Node 
+###### Initialize Kubernetes on Master Node 
 
 - on `master-node`, the k8s cluster
  
