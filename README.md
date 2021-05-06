@@ -8,7 +8,7 @@
 
 ----
 
-##### Step 1.
+##### Step 1
 
 ###### Once all your devices are up and running you will have to perform the following to insure that all the applications are up and running
 
@@ -23,12 +23,24 @@ kubectl vesion
 ##### Step 2
 ###### Initialize Kubernetes on Master Node 
 
-- on `master-node`, the k8s cluster
- 
+- on the `master-node`, launch
+
  ```bash
  sudo kubeadm init --pod-network-cidr=172.16.0.0/16
  ```
  ###### NB. The cidr block (172.16.0.0/16) is for my VPC. Yours may be different if you choose not to use what is decleared on the [`variable.tf`](https://github.com/asongent/Create-Self-Managed-k8s-Cluster/blob/master/k8s-infrastructure-with-terraform/variables.tf#L65) file above.
+
+ - Take note of the `kubeadm join` ouput (message). This displays the token that will enable worker-nodes to join the cluster.
+```bash
+kubeadm join 172.16.0.197:6443 --token nj5zpr.7nedjnucg1dhe6ox \
+        --discovery-token-ca-cert-hash sha256:7f876317b4e0c523222765895e4447cd88ca117deb40065b9a6d220b14d2fd7f
+```
+- Create a directory and assign some permission to the cluster 
+```bash
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
 
 
 ```bash
