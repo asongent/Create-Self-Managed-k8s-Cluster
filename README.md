@@ -1,3 +1,36 @@
+### SELF-MANAGED KUBERNETES CLUSTER DEPLOYMENT STEPS
+
+**####Step 1: Assume You have AWSCLI downloaded and Setup wuith your API keys**
+
+**### Step 2: Create and download keypair from CLI**
+<details><summary>View</summary>
+<p>
+
+ **For Windows Users**
+- Open Windows Powershell as Administrator, run 
+ ```bash
+aws ec2 create-key-pair --region us-xxx-2 --key-name mykeypair --query 'KeyMaterial' --output text | out-file -encoding ascii -filepath ~/Desktop/mykeypair.pem 
+ ```
+ - Move to directory where you saved your keypair(`mykeypair.pem`) and run 
+ 
+ ```
+ chmod 400 mykeypair.pem
+```
+Note!
+> Your keypair must be created in the same region you intend to create your cluster.
+> You must reference the keypair on your deployment script to enable you SSH to nodes
+
+ **For MacOS users**
+
+ ```bash
+aws ec2 create-key-pair --key-name myKeypair --query 'KeyMaterial' --output text > mykeypair.pem
+ ```
+
+</p>
+</details>
+
+
+
 ## Create a Self-managed kubernetes Cluster in any Cloud platform (AWS, GCP or Azure)
 
 ##### Requirements
