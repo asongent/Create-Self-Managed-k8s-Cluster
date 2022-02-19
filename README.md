@@ -1,6 +1,12 @@
 #### SELF-MANAGED KUBERNETES CLUSTER DEPLOYMENT STEPS
 
-**Step 1: Assume You have AWSCLI downloaded and Setup wuith your API keys**
+**Step 1: Assume You have AWSCLI downloaded and Setup with your API keys**
+<details><summary>View</summary>
+<p>
+ It was easy!
+(:
+</p>
+</details>
 
 **Step 2: Create and download keypair from CLI**
 <details><summary>View</summary>
