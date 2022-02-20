@@ -1,5 +1,10 @@
 #### SELF-MANAGED KUBERNETES CLUSTER DEPLOYMENT STEPS
 
+**Purpose: This documentation provides steps to create self-managed kunernetes cluster with KUBEADM**
+- **The Operating System is Ubuntu 20.04 LT**
+- **Terraform script will work only on AWS**
+- **KUBEAM bootstrap scripts are in `user_data` directory**
+
 **Step 1: Assume You have AWSCLI downloaded and Setup with your API keys**
 <details><summary>View</summary>
 <p>
@@ -35,26 +40,42 @@ aws ec2 create-key-pair --key-name myKeypair --query 'KeyMaterial' --output text
 </p>
 </details>
 
-**Step 3: Deploy You infrastructures**
+**Step 3: Update The Script**
 <details><summary>View</summary>
 <p>
   
   - `cd` into `k8s-infrastructure-with-terraform` 
-  - Update `backend.tf` with an existing `S3` bucket is created manually. 
+  - Update `backend.tf` with an existing `S3` bucket. 
   - If you don't want to save you statefile in any `S3` bucket, comment `backend.tf`.
-  - In `terraform.tfvars` update `aws_access_key` with ***aws_access_key_id*** and `aws_secret_key` with ***aws_secret_access_key***.
+  - In `terraform.tfvars` update `aws_access_key` with your ***aws_access_key_id*** and `aws_secret_key` with ***aws_secret_access_key***.
   - In `variables.tf.
-    - on `line 12`update the region.
+    - on `line 12`, update the region.
     - on `line 25`, update `ami-042e8287309f5df03`. The AMI must be `Ubuntu 20.04` and must be in the region you intend to create your nodes.
-  - Remember NOT to push your `keys` to github repo (:.
+
 </p>
 </details>
+
+**Step 4: Deploy You infrastructures**
+<details><summary>View</summary>
+<p>
+
+
+</p>
+</details>
+
+**Step 6: One Important Thing**
+<details><summary>View</summary>
+<p>
+- Remember NOT to push your `keys` to github repo (:.
+</p>
+</details>
+  
 
 ## Create a Self-managed kubernetes Cluster in any Cloud platform (AWS, GCP or Azure)
 
 ##### Requirements
 
-###### - Three Linux-based OS (any distro) of your choice with atleast 2CPUs and 4 GB. I am using Ubunutu 20.14,
+###### - Three Linux-based OS (any distro) of your choice with atleast 2CPUs and 4 GB. I am using Ubunutu 20.14 LT,
 ###### - Stable internet connection,
 ###### - I have prepered infrastructures as listed in [`k8s-infrastructure-with-terraform`](https://github.com/asongent/Create-Self-Managed-k8s-Cluster/tree/master/k8s-infrastructure-with-terraform) folder above. You just need to clone it, edit it to your own preference and then deploy it to continue with this tutorial.  
 
