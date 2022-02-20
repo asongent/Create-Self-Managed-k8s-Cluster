@@ -35,7 +35,20 @@ aws ec2 create-key-pair --key-name myKeypair --query 'KeyMaterial' --output text
 </p>
 </details>
 
-
+**Step 3: Deploy You infrastructures**
+<details><summary>View</summary>
+<p>
+  
+  - `cd` into `k8s-infrastructure-with-terraform` 
+  - Update `backend.tf` with an existing `S3` bucket is created manually. 
+  - If you don't want to save you statefile in any `S3` bucket, comment `backend.tf`.
+  - In `terraform.tfvars` update `aws_access_key` with ***aws_access_key_id*** and `aws_secret_key` with ***aws_secret_access_key***.
+  - In `variables.tf.
+    - on `line 12`update the region.
+    - on `line 25`, update `ami-042e8287309f5df03`. The AMI must be `Ubuntu 20.04` and must be in the region you intend to create your nodes.
+  - Remember NOT to push your `keys` to github repo (:.
+</p>
+</details>
 
 ## Create a Self-managed kubernetes Cluster in any Cloud platform (AWS, GCP or Azure)
 

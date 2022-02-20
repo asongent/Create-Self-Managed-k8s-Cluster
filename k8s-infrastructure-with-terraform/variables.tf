@@ -46,11 +46,11 @@ variable "name" {
 //////////////////
 
 
-variable "s3name" {
-  type        = string
-  default     = "lee-bucket-file"
-  description = "This bucket name"
-}
+# variable "s3name" {
+#   type        = string
+#   default     = "my-bucket-001"
+#   description = "This bucket name"
+# }
 
 //////////////////////////////
 #Keypair variables

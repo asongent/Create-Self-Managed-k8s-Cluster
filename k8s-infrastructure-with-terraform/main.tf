@@ -5,24 +5,24 @@
 
 #SIMPLE STORAGE SERVICE FOR BACKEND
 
-resource "aws_s3_bucket" "hono-tracy-bucket" {
-  bucket = var.s3name
-  acl    = "private"
-  lifecycle {
-    prevent_destroy = false
-  }
-  versioning {
-    enabled    = false
-    mfa_delete = false
-  }
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
-    }
-  }
-}
+# resource "aws_s3_bucket" "some-bucket" {
+#   bucket = var.s3name
+#   acl    = "private"
+#   lifecycle {
+#     prevent_destroy = false
+#   }
+#   versioning {
+#     enabled    = false
+#     mfa_delete = false
+#   }
+#   server_side_encryption_configuration {
+#     rule {
+#       apply_server_side_encryption_by_default {
+#         sse_algorithm = "AES256"
+#       }
+#     }
+#   }
+# }
 /// A network address translation (NAT) gateway enables instances in a private
 /// subnet to connect to the internet or other AWS services, but prevent the internet from initiating a connection with those instances.
 
@@ -172,59 +172,17 @@ resource "aws_instance" "worker02" {
   }
 }
 
-////////////////////////////////////////
-#Workernode and it's Output
-///////////////////////////////////////
 
-/////////output for masternode//////
-
-output "Master_name" {
-  value = aws_instance.Master.tags.Name
-}
+//Get nodes public IPs. This will enable you SSH and the master and worker nodes//
 
 output "Master_pub_ip" {
   value = aws_instance.Master.public_ip
-}
-
-output "Master_private_ip" {
-  value = aws_instance.Master.private_ip
-}
-
-output "Master_DNS" {
-  value = aws_instance.Master.public_dns
-}
-
-/////////output for workernode01//////
-
-output "worker01_name" {
-  value = aws_instance.worker01.tags.Name
 }
 
 output "worker01_pub_ip" {
   value = aws_instance.worker01.public_ip
 }
 
-output "worker01_private_ip" {
-  value = aws_instance.worker01.private_ip
-}
-output "worker01_DNS" {
-  value = aws_instance.worker01.public_dns
-}
-
-
-/////////output for workernode02//////
-
-output "worker02_name" {
-  value = aws_instance.worker02.tags.Name
-}
-
 output "worker02_pub_ip" {
   value = aws_instance.worker02.public_ip
-}
-
-output "worker02_private_ip" {
-  value = aws_instance.worker02.private_ip
-}
-output "worker02_DNS" {
-  value = aws_instance.worker02.public_dns
 }
