@@ -152,7 +152,7 @@ kubectl get pod -A
 <details><summary>View</summary>
 <p>
 
-- Remember NOT to push your `keys` to github repo 
+- Remember NOT to push your `keys` to GitHub repo 
 </p>
 </details>
   
