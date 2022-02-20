@@ -62,11 +62,33 @@ aws ec2 create-key-pair --key-name myKeypair --query 'KeyMaterial' --output text
 - Open terminal in `k8s-infrastructure-with-terraform` directory and type,
 
 ```bash
-terraform init
+terraform init # copy and paste individually and wait for one to complete before the other
 terraform fmt
 terraform validate
 terraform plan
 terraform apply --auto-approve
+```
+- Once the infrastructures are successfully deployed, you will see public ip address(output) for master and worker nodes. They will look like this:
+
+```bash
+Master_pub_ip = "3.80.6.140"
+worker01_pub_ip = "3.227.251.158"
+worker02_pub_ip = "3.236.16.182"
+```
+
+- To SSH into master node 
+
+```bash 
+ssh -i ~/path/mykeypair.pem ubuntu@3.80.6.140
+```
+- To SSH into worker01  
+
+```bash 
+ssh -i ~/path/mykeypair.pem ubuntu@3.227.251.158
+```
+- To SSH into work02 node 
+```bash 
+ssh -i ~/path/mykeypair.pem ubuntu@3.236.16.182
 ```
 
 </p>
