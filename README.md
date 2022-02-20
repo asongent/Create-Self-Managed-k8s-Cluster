@@ -8,8 +8,7 @@
 **Step 1: Assume You have AWSCLI downloaded and Setup with your API keys**
 <details><summary>View</summary>
 <p>
- It was easy!
-(:
+That was easy!
 </p>
 </details>
 
