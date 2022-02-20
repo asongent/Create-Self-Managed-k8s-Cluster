@@ -74,23 +74,18 @@ Master_pub_ip = "3.80.6.140"
 worker01_pub_ip = "3.227.251.158"
 worker02_pub_ip = "3.236.16.182"
 ```
+</p>
+</details>
+
+**Step 5: Configure Master Node(Controlplane)**
+<details><summary>View</summary>
+<p>
 
 - SSH into master node 
 
 ```bash 
 ssh -i ~/path/mykeypair.pem ubuntu@3.80.6.140
 ```
-- SSH into work02 node 
-```bash 
-ssh -i ~/path/mykeypair.pem ubuntu@3.236.16.182
-```
-
-</p>
-</details>
-
-**Step 5: Configure Mater Node(Controlplane)**
-<details><summary>View</summary>
-<p>
 
 - Onces your have SSH into master node, run.
   
