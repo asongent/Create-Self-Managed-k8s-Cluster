@@ -68,7 +68,7 @@ terraform validate
 terraform plan
 terraform apply --auto-approve
 ```
-- Once the infrastructures are successfully deployed, you will see public ip address(output) for master and worker nodes. They will look like this:
+- Once the infrastructures are successfully deployed, you will see public ip addresses(output) for master and worker nodes. They will look like this:
 
 ```bash
 Master_pub_ip = "3.80.6.140"
@@ -76,21 +76,47 @@ worker01_pub_ip = "3.227.251.158"
 worker02_pub_ip = "3.236.16.182"
 ```
 
-- To SSH into master node 
+- SSH into master node 
 
 ```bash 
 ssh -i ~/path/mykeypair.pem ubuntu@3.80.6.140
 ```
-- To SSH into worker01  
+- SSH into worker01  
 
 ```bash 
 ssh -i ~/path/mykeypair.pem ubuntu@3.227.251.158
 ```
-- To SSH into work02 node 
+- SSH into work02 node 
 ```bash 
 ssh -i ~/path/mykeypair.pem ubuntu@3.236.16.182
 ```
 
+</p>
+</details>
+
+**Step 5: Configure Mater Node(Controlplane)**
+<details><summary>View</summary>
+<p>
+
+- Onces your have SSH into master node, run.
+  
+```bash
+sudo mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+- Deploy CNI, [calico network interface](https://projectcalico.docs.tigera.io/getting-started/kubernetes/installation/config-options) by running
+ 
+ ```bash
+ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml 
+ ```
+- Create join token.
+  
+  ```bash
+  sudo kubeadm token create  --print-join-command
+  ```
+  
 </p>
 </details>
 
