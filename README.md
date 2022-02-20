@@ -18,9 +18,9 @@
 <p>
 
  **For Windows Users**
-- Open Windows Powershell as Administrator, run 
+- Open `Windows Powershell` as Administrator, run 
  ```bash
-aws ec2 create-key-pair --region us-xxx-2 --key-name mykeypair --query 'KeyMaterial' --output text | out-file -encoding ascii -filepath ~/Desktop/mykeypair.pem 
+aws ec2 create-key-pair --region us-xxxx-2 --key-name mykeypair --query 'KeyMaterial' --output text | out-file -encoding ascii -filepath ~/Desktop/mykeypair.pem 
  ```
  - Move to directory where you saved your keypair(`mykeypair.pem`) and run 
  
@@ -59,6 +59,15 @@ aws ec2 create-key-pair --key-name myKeypair --query 'KeyMaterial' --output text
 <details><summary>View</summary>
 <p>
 
+- Open terminal in `k8s-infrastructure-with-terraform` directory and type,
+
+```bash
+terraform init
+terraform fmt
+terraform validate
+terraform plan
+terraform apply --auto-approve
+```
 
 </p>
 </details>
@@ -66,7 +75,7 @@ aws ec2 create-key-pair --key-name myKeypair --query 'KeyMaterial' --output text
 **Step 6: One Important Thing**
 <details><summary>View</summary>
 <p>
-- Remember NOT to push your `keys` to github repo (:.
+- Remember NOT to push your `keys` to github repo 
 </p>
 </details>
   
